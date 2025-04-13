@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Coach AI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="images/Lovely_Professional_University_logo.png" alt="Lovely Professional University Logo" class="lpu-logo" />
+                <div class="header-text">
+                    <h1><i class="fas fa-microphone-alt"></i>Speech Coach AI</h1>
+                    <p>Improve your speaking skills with real-time AI-powered feedback and analysis</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="scenario-selection glass-panel">
+            <h2>Choose Your Practice Scenario</h2>
+            <div class="scenario-info">
+                <p>Select the context that best matches your speaking goals:</p>
+            </div>
+            <div class="scenario-buttons">
+                <button class="scenario-btn" data-scenario="interview">
+                    <i class="fas fa-briefcase"></i> Job Interview
+                </button>
+                <button class="scenario-btn" data-scenario="public">
+                    <i class="fas fa-presentation"></i> Public Speaking
+                </button>
+                <button class="scenario-btn active" data-scenario="general">
+                    <i class="fas fa-comments"></i> General Practice
+                </button>
+                <button class="scenario-btn" data-scenario="social">
+                    <i class="fas fa-users"></i> Social Skills
+                </button>
+            </div>
+        </section>
+
+        <div class="analysis-cards">
+            <!-- Speech Analysis Card -->
+            <section class="analysis-card speech-analysis">
+                <h3><i class="fas fa-microphone"></i> Speech Analysis</h3>
+                <div class="card-description">
+                    <p>Practice speaking naturally and receive instant feedback on your delivery, pace, and clarity.</p>
+                </div>
+                <div class="chat-container" id="speech-transcript"></div>
+                <div class="controls">
+                    <button id="mic-button" title="Start/Stop Recording">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+                <div class="feedback-dashboard">
+                    <h3>Speech Analytics</h3>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <h4>Speaking Pace</h4>
+                            <div class="metric-value" id="pace-value">0 WPM</div>
+                            <div class="metric-chart" id="pace-chart"></div>
+                        </div>
+                        <div class="metric">
+                            <h4>Filler Words</h4>
+                            <div class="metric-value" id="filler-count">0</div>
+                            <div class="metric-chart" id="filler-chart"></div>
+                        </div>
+                        <div class="metric">
+                            <h4>Vocabulary</h4>
+                            <div class="metric-value" id="vocab-score">0%</div>
+                            <div class="metric-chart" id="vocab-chart"></div>
+                        </div>
+                        <div class="metric">
+                            <h4>Emotional Tone</h4>
+                            <div class="metric-value" id="tone-value">Neutral</div>
+                            <div class="metric-chart" id="tone-chart"></div>
+                        </div>
+                    </div>
+                    <div class="corrections-panel">
+                        <h4>Speech Suggestions</h4>
+                        <div id="speech-corrections-list">
+                            <p class="empty-state">Start speaking to see suggestions and improvements.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Text Analysis Card -->
+            <section class="analysis-card text-analysis">
+                <h3><i class="fas fa-keyboard"></i> Text Analysis</h3>
+                <div class="card-description">
+                    <p>Type or paste your text to receive detailed feedback on grammar, style, and clarity.</p>
+                </div>
+                <div class="chat-container" id="text-transcript"></div>
+                <div class="controls">
+                    <textarea 
+                        id="text-input" 
+                        placeholder="Type your text here and press Ctrl+Enter to analyze..."
+                        rows="1"
+                        maxlength="500"
+                        aria-label="Text for analysis"
+                    ></textarea>
+                    <span class="input-counter">0/500</span>
+                    <button id="send-button" title="Analyze Text">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="feedback-dashboard">
+                    <h3>Writing Analysis</h3>
+                    <div class="metrics-grid">
+                        <div class="metric">
+                            <h4>Grammar Score</h4>
+                            <div class="metric-value" id="grammar-score">-</div>
+                            <div class="metric-chart" id="grammar-chart"></div>
+                        </div>
+                        <div class="metric">
+                            <h4>Style Score</h4>
+                            <div class="metric-value" id="style-score">-</div>
+                            <div class="metric-chart" id="style-chart"></div>
+                        </div>
+                    </div>
+                    <div class="corrections-panel">
+                        <h4>Suggestions & Corrections</h4>
+                        <div id="corrections-list">
+                            <p class="empty-state">Enter text to see corrections and suggestions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="tips-section glass-panel">
+            <h3><i class="fas fa-lightbulb"></i> Pro Tips</h3>
+            <div class="tips-grid">
+                <div class="tip">
+                    <i class="fas fa-clock"></i>
+                    <h4>Ideal Pace</h4>
+                    <p>Aim for 120-150 words per minute for clear, engaging speech.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-volume-up"></i>
+                    <h4>Voice Clarity</h4>
+                    <p>Speak clearly into your microphone and minimize background noise.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-keyboard"></i>
+                    <h4>Text Analysis</h4>
+                    <p>Write complete sentences for the most accurate grammar analysis.</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Track Progress</h4>
+                    <p>Practice regularly and monitor your improvement over time.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; Mohit: 12318066 / Siddharth kumar: 12310543  /  Himanshu Saraswat: 12306999	
+                </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/gemini-api.js"></script>
+    <script src="js/speech-recognition.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/text-analysis.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html> 
